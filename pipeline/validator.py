@@ -8,9 +8,9 @@ months = ["January", "February", "March", "April", "May", "June", "July",
 def correctData(data: list):
     if bool(data):
         for i in range(len(data)):
-            print(i)
+            #print(i)
             for key, expected_type in data_requirements.items():
-                print(key)
+                #print(key)
                 if key in data[i]:
                     if (
                     #Check for Blanks, Excluding the ones with defaults

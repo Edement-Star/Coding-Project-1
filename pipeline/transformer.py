@@ -21,10 +21,10 @@ def insertDefault(data: list, key, index):
 
 def decide(data: list, key, index: int):
     if key == "Product" or key == "Provider" or key == "Quantity" or key == "Unit Price":
-        print('Replace')
+        #print('Replace')
         return insertDefault(data, key, index)
     elif key == 'Date Ordered' or key == 'Resolved':
-        print('Delete')
+        #print('Delete')
         return deleteVariableData(data, key, index)
     return data
 
