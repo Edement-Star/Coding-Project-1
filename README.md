@@ -1,4 +1,4 @@
-﻿# Coding-Project-1
+﻿# Coding-Assignment-1
 1. Why would someone find your project useful?
    1. Someone would find this program useful as a shell to create their own order management display.
 2. What problem are you proposing to solve?
