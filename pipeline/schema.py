@@ -14,6 +14,12 @@ class Order:
     def isResolved(self):
         return self.resolved
 
+    def resolve(self):
+        self.resolved = True
+
+    def unresolve(self):
+        self.resolved = False
+
 class Store:
     def __init__(self, store_ID, address, phone_number):
         self.storeID = store_ID

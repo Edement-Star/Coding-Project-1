@@ -3,36 +3,47 @@
 def deleteVariableData(data: list, key, index):
     if key in data[index]:
         data[index].pop(key)
-        return data
     return data
 
 def insertDefault(data: list, key, index):
     if key in data[index]:
         if key == "Product" or key == "Provider":
-            data[index][key] = "Unknown"
-            return data
+            try:
+                data[index][key] = data[index][key][0]
+            except TypeError:
+                data[index][key] = "Unknown"
         elif key == 'Quantity':
-            data[index][key] = "3"
-            return data
+            if not data[index][key]:
+                data[index][key] = 3
+            else:
+                try:
+                    data[index][key] = int(data[index][key])
+                except TypeError:
+                    data[index][key] = int(data[index][key][0])
         elif key == 'Unit Price':
-            data[index][key] = "30.25"
-            return data
+            if not data[index][key]:
+                data[index][key] = 30.25
+            else:
+                try:
+                    data[index][key] = float(data[index][key])
+                except TypeError:
+                    data[index][key] = float(data[index][key][0])
     return data
 
 def decide(data: list, key, index: int):
     if key == "Product" or key == "Provider" or key == "Quantity" or key == "Unit Price":
         #print('Replace')
-        return insertDefault(data, key, index)
+        data = insertDefault(data, key, index)
     elif key == 'Date Ordered' or key == 'Resolved':
         #print('Delete')
-        return deleteVariableData(data, key, index)
+        data = deleteVariableData(data, key, index)
     return data
 
 def calculateTotalPrice(item):
-        total = item.unit_price * item.quantity
+        total = item.unit_price * float(item.quantity)
         return total
 def calculateFullTotalPrice(data: list):
     total = 0
-    for item in range(len(data)):
-        total += item.unit_price * item.quantity
+    for item in data:
+        total += item.unit_price * float(item.quantity)
     return total

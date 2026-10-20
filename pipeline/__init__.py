@@ -1,20 +1,20 @@
 # Core Information Here
-# Purchuse Order, 10 Data points; Primary Key: Int, Product: String, Provider: String,
+# Purchase Order, 10 Data points; Primary Key: Int, Product: String, Provider: String,
 # Quantity: Int, Unit Price: Float, Resolved?: Boolean, Date Ordered: Tuple (Str, Int, Int)
-# Store Info, 3 Points; Primary Key: Int, Address: String, PhoneNum: Int
+# Store Info, 3 Points; Primary Key: Int, Address: String, PhoneNum: String
 
+# Data is AI Generate. For the purpose of being deliberately incorrect.
 ORDERS = [
     {
-        "Product": "Wireless Mouse",
+        "Product": 12345,  # should be str
         "Quantity": 5,
         "Unit Price": 24.99,
         "Provider": "TechSupply Inc.",
-        "Date Ordered": ("January", 15, 2026),
         "Resolved": False
     },
     {
         "Product": "Mechanical Keyboard",
-        "Quantity": 2,
+        "Quantity": "2",  # should be int
         "Unit Price": 89.50,
         "Provider": "OfficeGear Ltd.",
         "Date Ordered": ("February", 3, 2026),
@@ -23,7 +23,7 @@ ORDERS = [
     {
         "Product": "USB-C Hub",
         "Quantity": 10,
-        "Unit Price": 15.75,
+        "Unit Price": "15.75",  # should be float
         "Provider": "Connect Solutions",
         "Date Ordered": ("March", 22, 2026),
         "Resolved": False
@@ -32,13 +32,13 @@ ORDERS = [
         "Product": "27-inch Monitor",
         "Quantity": 3,
         "Unit Price": 199.99,
-        "Provider": "Display World",
+        "Provider": ["Display World"],  # should be str
         "Date Ordered": ("April", 8, 2026),
         "Resolved": True
     },
     {
         "Product": "Laptop Stand",
-        "Quantity": 7,
+        "Quantity": [7],  # should be int
         "Unit Price": 34.95,
         "Provider": "Workspace Essentials",
         "Date Ordered": ("May", 17, 2026),
@@ -49,7 +49,7 @@ ORDERS = [
         "Quantity": 4,
         "Unit Price": 59.99,
         "Provider": "Vision Tech",
-        "Date Ordered": ("June", 12, 2026),
+        "Date Ordered": "June 12, 2026",  # should be tuple
         "Resolved": True
     },
     {
@@ -58,11 +58,11 @@ ORDERS = [
         "Unit Price": 8.49,
         "Provider": "Network Supply Co.",
         "Date Ordered": ("July", 29, 2026),
-        "Resolved": False
+        "Resolved": "False"  # should be bool
     },
     {
         "Product": "Desk Chair",
-        "Quantity": 1,
+        "Quantity": None,  # should be int
         "Unit Price": 249.95,
         "Provider": "Comfort Furniture",
         "Date Ordered": ("August", 14, 2026),
@@ -71,7 +71,7 @@ ORDERS = [
     {
         "Product": "External SSD",
         "Quantity": 6,
-        "Unit Price": 129.00,
+        "Unit Price": False,  # should be float
         "Provider": "Storage Experts",
         "Date Ordered": ("September", 5, 2026),
         "Resolved": False
@@ -81,8 +81,8 @@ ORDERS = [
         "Quantity": 50,
         "Unit Price": 6.25,
         "Provider": "Office Supplies Plus",
-        "Date Ordered": ("October", 11, 2026),
-        "Resolved": True
+        "Date Ordered": {"month": "October", "day": 11, "year": 2026},  # should be tuple
+        "Resolved": 1  # should be bool
     }
 ]
 STORES = [
